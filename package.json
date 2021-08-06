@@ -1,0 +1,94 @@
+{
+  "name": "mdna",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
+    "lint-staged": "lint-staged"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog",
+      "types": {
+        "feat": {
+          "description": "我开发了一个功能"
+        },
+        "fix": {
+          "description": "我修复了代码逻辑的异常"
+        },
+        "test": {
+          "description": "我更新了单元测试相关的代码"
+        },
+        "chore": {
+          "description": "我修改了除src和test目录以外的文件"
+        },
+        "lint": {
+          "description": "我修复了代码检测出来的异常"
+        }
+      }
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "type-enum": [
+        2,
+        "always",
+        [
+          "feat",
+          "fix",
+          "test",
+          "chore",
+          "lint"
+        ]
+      ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": "npx eslint -c eslint.config.js --fix",
+    "src/**/*.{css,less}": "npx stylelint --config stylelint.config.js --fix"
+  },
+  "dependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "@vitejs/plugin-legacy": "^1.5.1",
+    "@vitejs/plugin-react-refresh": "^1.3.1",
+    "autoprefixer": "^10.3.1",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^2.4.0",
+    "less": "^4.1.1",
+    "lint-staged": "^11.1.2",
+    "postcss": "^8.3.6",
+    "postcss-modules": "^4.2.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.4.4"
+  }
+}
