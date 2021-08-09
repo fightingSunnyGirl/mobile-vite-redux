@@ -1,17 +1,32 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 import reactRefresh from '@vitejs/plugin-react-refresh'
 import legacy from '@vitejs/plugin-legacy'
+import createImportPlugin from 'vite-plugin-import'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     reactRefresh(),
     legacy({
-      targets: ['defaults', 'not IE 11'],
+      targets: ['> 1%, last 1 version, ie >= 11'],
+      additionalLegacyPolyfills: ['regenerator-runtime/runtime'], // 面向IE11时需要此插件
+    }),
+    createImportPlugin({
+      onlyBuild: false,
+      babelImportPluginOptions: [
+        {
+          libraryName: 'antd-mobile',
+          libraryDirectory: 'es',
+          style: true, // or 'css'
+        },
+      ],
     }),
   ],
   resolve: {
-    alias: [],
+    alias: [
+      { find: '@', replacement: resolve(__dirname, './src') },
+    ],
   },
   css: {
     modules: { // css模块化 文件以.module.[css|less|scss]结尾
