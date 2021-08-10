@@ -8,4 +8,5 @@ declare module '*.less';
 declare module '*.scss';
 declare module '*.sass';
 declare module '*.styl';
-declare module '*.module.less'
+declare module '*.module.less';
+declare module '@antv/f2/lib/*';

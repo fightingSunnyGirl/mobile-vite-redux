@@ -1,5 +1,6 @@
 module.exports = {
   plugins: [
+    // 前缀追加
     require('autoprefixer')({
       overrideBrowserslist: [
         'Android 4.1',
@@ -11,9 +12,11 @@ module.exports = {
       ],
       grid: true,
     }),
-    // require("postcss-modules")({
-    //   generateScopedName: "[name]__[local]___[hash:base64:5]",
-    //   hashPrefix: "prefix",
-    // }),
+    // 单位适配 还需要在html文件里面计算根元素值
+    require('postcss-pxtransform')({
+      platform: 'h5',
+      designWidth: 750,
+    }),
+    require('postcss-flexbugs-fixes'),
   ],
 }

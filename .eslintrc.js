@@ -26,6 +26,14 @@ module.exports = {
     '@typescript-eslint',
     'react-hooks',
   ],
+  // 解析路径引入报错问题
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
   rules: {
     'no-var': 'error',
     'prefer-template': 'error',
@@ -75,6 +83,7 @@ module.exports = {
         ],
       },
     ],
+    // 忽略检测
     'import/no-unresolved': [2, { ignore: ['@/*', '@components/*'] }],
     // react rules
     camelcase: ['error', { allow: ['^UNSAFE_'] }],
