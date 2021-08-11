@@ -54,15 +54,20 @@
     }
   },
   "lint-staged": {
-    "src/**/*.js": "npx eslint -c eslint.config.js --fix",
+    "src/**/*.js": "npx eslint -c .eslintrc.js --fix",
     "src/**/*.{css,less}": "npx stylelint --config stylelint.config.js --fix"
   },
   "dependencies": {
     "@antv/f2": "^3.8.9",
+    "@loadable/component": "^5.15.0",
     "antd-mobile": "^2.3.4",
+    "axios": "^0.21.1",
     "fastclick": "^1.0.6",
+    "mobx": "^6.3.2",
+    "mobx-react": "^7.2.0",
     "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react-dom": "^17.0.0",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
@@ -80,6 +85,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
+    "eslint-config-standard-jsx": "^10.0.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-node": "^11.1.0",

@@ -1,10 +1,9 @@
 import { defineConfig } from 'vite'
-import { resolve } from 'path'
+import path from 'path'
 import reactRefresh from '@vitejs/plugin-react-refresh'
 import legacy from '@vitejs/plugin-legacy'
 import createImportPlugin from 'vite-plugin-import'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     reactRefresh(),
@@ -24,9 +23,11 @@ export default defineConfig({
     }),
   ],
   resolve: {
-    alias: [
-      { find: '@', replacement: resolve(__dirname, './src') },
-    ],
+    extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json', '.sass', '.scss'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@components': path.resolve(__dirname, 'src/components'),
+    },
   },
   css: {
     modules: { // css模块化 文件以.module.[css|less|scss]结尾
@@ -57,11 +58,5 @@ export default defineConfig({
         rewrite: path => path.replace(/^\/api/, ''),
       },
     },
-  },
-  optimizeDeps: {
-    include: [
-
-    ],
-
   },
 })

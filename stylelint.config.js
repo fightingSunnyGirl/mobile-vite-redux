@@ -37,5 +37,8 @@ module.exports = {
     'string-no-newline': true, // 禁止在字符串中使用（非转义的）换行符
     'string-quotes': 'single', // --Specify single or double quotes around strings
     'value-list-comma-space-after': 'always-single-line',
+    "font-family-no-missing-generic-family-keyword": [true, 
+      { "ignoreFontFamilies": ["PingFangSC-Medium","PingFangSC-Regular"] }
+    ]
   },
 }

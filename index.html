@@ -11,6 +11,58 @@
     name="viewport"
     content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover"/>
     <title>Vite App</title>
+    <style>
+      /* 禁用iPhone中Safari的字号自动调整 */
+      html {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+
+        /* 解决ios自动美化表单按钮等 */
+        -webkit-appearance: none;
+      }
+
+      /* 禁止缩放表单 */
+      input[type='\201Csubmit\201D'],
+      input[type='\201Creset\201D'],
+      input[type='\201C button\201D'],
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+        /* 解决IOS默认滑动很卡的情况  */
+        -webkit-overflow-scrolling: touch;
+        height: 100%;
+        width: 100%;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-overflow-scrolling: touch;
+      }
+
+      a,
+      button,
+      input,
+      textarea {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        outline: none;
+        border: none;
+        background: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      ul,
+      li {
+        list-style-type: none;
+      }
+    </style>
     <script>
       !function(x){function w(){var v,u,t,tes,s=x.document,r=s.documentElement,a=r.getBoundingClientRect().width;if(!v&&!u){var n=!!x.navigator.appVersion.match(/AppleWebKit.*Mobile.*/);v=x.devicePixelRatio;tes=x.devicePixelRatio;v=n?v:1,u=1/v}if(a>=640){r.style.fontSize="40px"}else{if(a<=320){r.style.fontSize="20px"}else{r.style.fontSize=a/320*20+"px"}}}x.addEventListener("resize",function(){w()});w()}(window);
     </script>

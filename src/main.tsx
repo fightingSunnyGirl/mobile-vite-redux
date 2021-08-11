@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import attachFastClick from 'fastclick'
-import './index.css'
 import App from './App'
 
 if ('addEventListener' in document) {
