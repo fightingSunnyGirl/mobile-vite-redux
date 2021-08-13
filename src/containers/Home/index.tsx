@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, withRouter, useParams } from 'react-router-dom'
 import { Button } from 'antd-mobile'
+import { parse } from 'query-string'
 import styles from './index.module.less'
 import Container from '@/components/container'
 
@@ -68,7 +69,8 @@ const Home = (props:IAppProps): JSX.Element => {
   const [count, setCount] = useState(0)
   const history = useHistory()
   const params = useParams()
-  console.log('useParams===', params)
+  console.log('params====', params)
+  console.log('参数获取parseQuery===', parse(props.location.search))
   const P = new Promise((resolve) => {
     resolve(count)
   })
