@@ -1,7 +1,6 @@
 import React from 'react'
 import loadable from '@loadable/component'
 const modules = import.meta.glob('../containers/*/*.tsx')
-
 function LoadableCom (props: Project.General.IAnyObject): JSX.Element {
   const component = `/containers${props.route.component}/`
   const LoadableBar: any = loadable(async () => {

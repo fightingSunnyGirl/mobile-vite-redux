@@ -9,7 +9,7 @@ type routesTypes = Array<routeItem>
 
 const routes:routesTypes = [
   {
-    path: '/home',
+    path: '/home/:id?',
     name: '欢迎',
     component: '/Home',
   },

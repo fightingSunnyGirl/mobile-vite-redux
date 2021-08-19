@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, withRouter, useParams } from 'react-router-dom'
+import { /* connect , */useDispatch, useSelector } from 'react-redux'
 import { Button } from 'antd-mobile'
 import { parse } from 'query-string'
 import styles from './index.module.less'
@@ -74,7 +75,18 @@ const Home = (props:IAppProps): JSX.Element => {
   const P = new Promise((resolve) => {
     resolve(count)
   })
+  const dispatch = useDispatch()
+  const dataTest = useSelector((state:any) => state.digitalData)
+
+  console.log('dataTest===', dataTest)
   console.log('props===', props)
+  const handleClick = () => {
+    dispatch({
+      type: 'INCREMENT',
+      payload: '123123',
+    })
+  }
+
   const handleChart = () => {
     const chart = new Chart({
       id: 'myChart',
@@ -127,8 +139,8 @@ const Home = (props:IAppProps): JSX.Element => {
   return (
     <Container>
       <div className="App">
-        <div className={styles['App-header']}>我是首页 11</div>
-
+        <div className={styles['App-header']} onClick={handleClick}>我是首页 11</div>
+        <p>我来自reducers,firstName==={dataTest.firstName}</p>
         <p className={styles['test-p']}>{Array.isArray(P) ? '是' : '否'}</p>
         <p>
           <Button type="primary" size="small" inline onClick={() => setCount(count => count + 1)}> count is: {count}</Button>
@@ -142,3 +154,19 @@ const Home = (props:IAppProps): JSX.Element => {
 }
 
 export default withRouter(Home)
+
+// 通过connect连接 可以在props里面获取到initData 和increment ；上面是通过useDispatch 和 useSelector连接
+// export default connect((state:Project.General.IAnyObject) => {
+//   return {
+//     initData: state.increment,
+//   }
+// }, (dispatch) => {
+//   return {
+//     increment (payload) {
+//       dispatch({
+//         type: 'INCREMENT',
+//         payload,
+//       })
+//     },
+//   }
+// })(withRouter(Home))

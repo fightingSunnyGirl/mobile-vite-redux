@@ -63,12 +63,13 @@
     "antd-mobile": "^2.3.4",
     "axios": "^0.21.1",
     "fastclick": "^1.0.6",
-    "mobx": "^6.3.2",
-    "mobx-react": "^7.2.0",
     "query-string": "^7.0.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "react-router-dom": "^5.2.0"
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.1.1",
+    "redux-saga": "^1.1.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
@@ -77,6 +78,7 @@
     "@types/node": "^16.4.13",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/react-redux": "^7.1.18",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
     "@vitejs/plugin-legacy": "^1.5.1",
